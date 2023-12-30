@@ -4,15 +4,7 @@
 <?php require_once './../services/todo.service.php'; ?>
 <?php require_once './../controller/db.controller.php'; ?>
 <? session_start(); ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./../style/style.css">
-    <title>Project01</title>
-</head>
+<?php require_once __DIR__ . "/../components/header.component.php"; ?>
 
 <body>
     <?php require_once './../components/menu.component.php'; ?>
@@ -38,12 +30,12 @@
                 <td><?= $todo->getDescrizione() ?></td>
                 <td><?= $todo->getDateCreate() ?></td>
                 <td>
-                    <form method="POST" action="<?=$_ENV['url'] ?>/project/01/controller/todo.controller.php?id=<?php echo $todo->getIdTodo() ?>&stato=<?php echo $todo->getStato() ?>"><button name="action" value="updateStato"><?php if ($todo->getStato()) { ?> Completato <?php } else { ?> Da Completare<?php } ?></button></form>
+                    <form method="POST" action="<?= $_ENV['url'] ?>/project/01/controller/todo.controller.php?id=<?php echo $todo->getIdTodo() ?>&stato=<?php echo $todo->getStato() ?>"><button name="action" value="updateStato"><?php if ($todo->getStato()) { ?> Completato <?php } else { ?> Da Completare<?php } ?></button></form>
                 </td>
                 <td>
-                    <form method="POST" action="<?=$_ENV['url'] ?>/project/01/controller/todo.controller.php?id=<?= $todo->getIdTodo() ?>"> <button name="action" value="delete">Elimina</button></form>
+                    <form method="POST" action="<?= $_ENV['url'] ?>/project/01/controller/todo.controller.php?id=<?= $todo->getIdTodo() ?>"> <button name="action" value="delete">Elimina</button></form>
 
-                    <form method="GET" action="<?=$_ENV['url'] ?>/project/01/layout/updateTodo.template.php">
+                    <form method="GET" action="<?= $_ENV['url'] ?>/project/01/layout/updateTodo.template.php">
                         <input type="hidden" name="id" value="<?= $todo->getIdTodo() ?>">
                         <button type="submit" <?php if ($todo->getStato()) { ?> disabled <?php } ?>>Modifica</button>
                     </form>

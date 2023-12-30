@@ -4,6 +4,12 @@ require_once './db.controller.php';
 require_once './../environment/env.php';
 require_once './../model/User.class.php';
 
+/** Scommentare questo blocco per implementare il pattern singleton
+ *  require_once __DIR__ . '/connector.controller.php';
+ *  $db = Connector::getInstance();
+ */
+
+
 /**Questo controller gestisce il signin e il login di un utente all'interno dell'applicazione */
 
 if(isset($_POST['submit'])){
