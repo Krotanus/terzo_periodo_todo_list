@@ -7,8 +7,9 @@
 <?php require_once __DIR__ . "/../components/header.component.php"; ?>
 
 <body>
-    <?php require_once './../components/menu.component.php'; ?>
-
+    <?php require_once './../components/menu.component.php'; 
+    if(isset($_SESSION['user'])){
+    ?>
     <h2>Ciao, <?= $_SESSION['user']->getNome() ?></h2>
     <form action="./../controller/todo.controller.php" method="POST">
         <input type="text" name="descrizione" placeholder="descrizione">
@@ -45,6 +46,7 @@
         }
         ?>
     </table>
+        <?php }else{header("Location:https://www.sliptstream.it/project/01/layout/login.template.php");} ?>
 </body>
 
 </html>
