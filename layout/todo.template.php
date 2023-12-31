@@ -38,6 +38,7 @@
 
                     <form method="GET" action="<?= $_ENV['url'] ?>/project/01/layout/updateTodo.template.php">
                         <input type="hidden" name="id" value="<?= $todo->getIdTodo() ?>">
+			            <input type="hidden" name="descrizione" value="<?= $todo->getDescrizione() ?>">
                         <button type="submit" <?php if ($todo->getStato()) { ?> disabled <?php } ?>>Modifica</button>
                     </form>
                 </td>
